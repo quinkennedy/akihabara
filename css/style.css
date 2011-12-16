@@ -138,7 +138,7 @@ button, input[type="submit"], .play a:hover, .download a:hover {
 	text-decoration: none;
 }
 button, input[type="submit"], .play a:active, .download a:active {
-	background: #FF66B3;
+	background: #5287CE;
 }
 
 /* Header */
@@ -306,7 +306,7 @@ body>footer {
 	font-size: 20px;
 }
 body>footer a {
-	color: #FF66B3;
+	color: #5287CE;
 }
 body>footer .plusoneWrapper {
 	width: 50px;
