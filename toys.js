@@ -613,6 +613,7 @@ var toys={
 								if (!gbox._objects[this.collidegroup][i].hitByBullet(this)) {
 									this.spark(this);
 									gbox.trashObject(this);
+									break;
 								}
 						}
 					}
