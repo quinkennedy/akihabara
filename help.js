@@ -251,8 +251,10 @@ var help={
 	* Subtracts or adds 1 to a value, always converging to zero. For example, passing -3 yields -2, 5 yields 4, etc. Works best with integers.
 	* @param {Integer} v A value.
 	* @returns A value that is one closer to 0 on the number line than v.
+	* QUIN'S EDIT
+	* ensured that decremeting v toward 0 does not pass 0 (so if v is .5 it doesn't become -.5)
 	*/
-	goToZero:function(v) { return (v?v-(v/Math.abs(v)):0); },
+	goToZero:function(v) { return ((v && Math.abs(v) > 1) ? v-(v/Math.abs(v)) : 0); },
 
 	/**
 	* Merges two sets of parameters together without overwriting existing parameters. This merges from model to data, and if data and model share parameters, data's values remain intact.

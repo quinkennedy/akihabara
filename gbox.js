@@ -1233,6 +1233,8 @@ var gbox={
 	* @example
 	* // from capman, draws an current object's tile, called from inside its blit function
 	* gbox.blitTile(gbox.getBufferContext(),{tileset:this.tileset,tile:this.frame,dx:this.x,dy:this.y,fliph:this.fliph,flipv:this.flipv,camera:this.camera,alpha:1});
+	* QUIN'S EDIT
+	* added offsetx and offsety so you can draw a portion of a source image offset from the top right corner
 	*/
 	blitTile:function(tox,data) {
 		if (tox==null) return;
@@ -1242,7 +1244,7 @@ var gbox={
 		tox.save();
 		tox.globalAlpha=(data.alpha?data.alpha:1);
 		tox.translate((data.fliph?ts.tilew:0), (data.flipv?ts.tileh:0)); tox.scale((data.fliph?-1:1), (data.flipv?-1:1));
-		this._safedrawimage(tox,img, ts.gapx+(ts.tilew*(data.tile%ts.tilerow)),ts.gapy+(ts.tileh*Math.floor(data.tile/ts.tilerow)),(data.w==null?ts.tilew:data.w),(data.h==null?ts.tileh:data.h),data.dx*(data.fliph?-1:1),data.dy*(data.flipv?-1:1),(data.w?data.w:ts.tilew),(data.h?data.h:ts.tileh));
+		this._safedrawimage(tox,img, ts.gapx+(ts.tilew*(data.tile%ts.tilerow))+(data.offsetx?data.offsetx:0),ts.gapy+(ts.tileh*Math.floor(data.tile/ts.tilerow))+(data.offsety?data.offsety:0),(data.w==null?ts.tilew:data.w),(data.h==null?ts.tileh:data.h),data.dx*(data.fliph?-1:1),data.dy*(data.flipv?-1:1),(data.w?data.w:ts.tilew),(data.h?data.h:ts.tileh));
 		tox.restore();
 	},
 
